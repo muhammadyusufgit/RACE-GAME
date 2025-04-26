@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameContainer {
+    width: 400px;
+    height: 600px;
+    background-color: #ddd;
+    position: relative;
+    overflow: hidden;
+}
+
+#road {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.5) 10px,
+        rgba(255, 255, 255, 0.5) 20px
+    );
+    animation: moveRoad 0.5s linear infinite;
+}
+
+@keyframes moveRoad {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+#playerCar {
+    width: 40px;
+    height: 80px;
+    background-color: red;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+}
+/* Avtomobilni tezlashtirish va animatsiyalash */
+@keyframes accelerate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#playerCar {
+    width: 40px;
+    height: 80px;
+    background-color: red;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    animation: accelerate 0.5s ease-in-out infinite;
+}
